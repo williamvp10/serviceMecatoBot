@@ -44,16 +44,14 @@ public class MainGlassfish {
         String user = matcher.group(1);
         String password = matcher.group(2);
         
-        String properties = "user=" + user + ":password=" + password + ":databasename=" + database + ":loglevel=4:servername=" + host;
-        
-	    
+        String properties = "user=" + user + ":password=" + password + ":databasename=" + database + ":loglevel=4:servername=" + host + " ";
         System.out.println("-------properties: " + properties);
         
         CommandResult result = runner.run("create-jdbc-connection-pool", "--datasourceclassname", "org.postgresql.ds.PGSimpleDataSource", "--restype", "javax.sql.DataSource", 
-        		//"--property", "url='" + dbUrl + "'", 
-        		//"--property", "user=user:password=postgres:databasename=petclinic:server=localhost:port=5432",
-        		//"--steadypoolsize", "1",
-        		//"--maxpoolsize", "1",
+       // 		"--property", "url='" + dbUrl + "'", 
+       // 		"--property", "user=user:password=postgres:databasename=petclinic:server=localhost:port=5432",
+       // 		"--steadypoolsize", "1",
+       // 		"--maxpoolsize", "1",
         		"--property", properties,
         		"app/jdbc/petcatalog_pool");
         
