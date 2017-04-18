@@ -39,8 +39,8 @@ public class HelloCrunchify extends HttpServlet {
                     "</head> \n" +
                     "<body> <div align='center'> \n" +
                       "<style= \"font-size=\"12px\" color='black'\"" + "\">" +
-                        "Username: " + username + " <br> " + 
-                        "Password: " + password +
+                        "Username: " + id + " <br> " + 
+                        "Password: " + nombre +
                         "Numero Deptos" + departamentos.size() +
                     "</font></body> \n" +
                   "</html>" 
