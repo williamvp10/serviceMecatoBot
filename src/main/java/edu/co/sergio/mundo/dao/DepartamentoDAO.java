@@ -85,11 +85,12 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
             } catch (URISyntaxException ex) {
                 Logger.getLogger(DepartamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-	    String query = " insert into Depto (nom_depto)"  + " values (?)";
+	    String query = " insert into Depto (id_depto,nom_depto)"  + " values (?,?)";
         PreparedStatement preparedStmt=null;
 	    try {
 			preparedStmt = connection.prepareStatement(query);
-			preparedStmt.setString (1, t.getNom_departamento());
+			preparedStmt.setInt (1, t.getId_departamento());
+                        preparedStmt.setString (2, t.getNom_departamento());
 			result= preparedStmt.execute();
 	    } catch (SQLException e) {
 			e.printStackTrace();
