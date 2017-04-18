@@ -44,7 +44,7 @@ public class MainGlassfish {
         String user = matcher.group(1);
         String password = matcher.group(2);
         
-        String properties = "user=" + user + ":password=" + password + ":databasename=" + database + ":loglevel=4:servername=" + host + " ";
+        String properties = "user=craxunyjyzohnu" + ":password=c87190c6c75542cced54dc81cf7b8c36532fe5fdb6121a599a9349942a84502a" + ":databasename=d83c0vsmvbu2e8" + ":loglevel=4:servername=ec2-23-21-204-166.compute-1.amazonaws.com" + " ";
         System.out.println("-------properties: " + properties);
         
         CommandResult result = runner.run("create-jdbc-connection-pool", "--datasourceclassname", "org.postgresql.ds.PGSimpleDataSource", "--restype", "javax.sql.DataSource", 
