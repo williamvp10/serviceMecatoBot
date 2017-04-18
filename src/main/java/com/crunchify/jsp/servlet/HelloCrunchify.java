@@ -17,9 +17,15 @@ import java.util.List;
 public class HelloCrunchify extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // reading the user input
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String id = request.getParameter("id");
+        String nombre = request.getParameter("nombre");
         DepartamentoDAO dao = new DepartamentoDAO();
+        
+        Departamento departamento = new Departamento();
+        departamento.setId_departamento(Integer.parseInt(id));
+        departamento.setNom_departamento(nombre);
+        dao.insert(departamento);
+        
         List<Departamento> departamentos =  dao.findAll();
         PrintWriter out = response.getWriter();
         out.println (
