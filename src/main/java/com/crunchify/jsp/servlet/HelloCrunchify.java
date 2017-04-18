@@ -1,11 +1,14 @@
 package com.crunchify.jsp.servlet;
  
+import edu.co.sergio.mundo.dao.DepartamentoDAO;
+import edu.co.sergio.mundo.vo.Departamento;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
+import java.util.List;
  
 /**
  * @author Crunchify.com
@@ -16,6 +19,8 @@ public class HelloCrunchify extends HttpServlet {
         // reading the user input
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        DepartamentoDAO dao = new DepartamentoDAO();
+        List<Departamento> departamentos =  dao.findAll();
         PrintWriter out = response.getWriter();
         out.println (
                   "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" +" +
@@ -30,6 +35,7 @@ public class HelloCrunchify extends HttpServlet {
                       "<style= \"font-size=\"12px\" color='black'\"" + "\">" +
                         "Username: " + username + " <br> " + 
                         "Password: " + password +
+                        "Numero Deptos" + departamentos.size() +
                     "</font></body> \n" +
                   "</html>" 
                 );      

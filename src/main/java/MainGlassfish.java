@@ -35,6 +35,9 @@ public class MainGlassfish {
 //	    
         String dbUrl = System.getenv("DATABASE_URL");
         
+        
+        
+        
         System.out.println("-------db url: " + dbUrl);
         Matcher matcher = Pattern.compile("postgres://(.*):(.*)@(.*)/(.*)").matcher(dbUrl);
         matcher.find();
