@@ -7,8 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
  
 /**
  * @author Crunchify.com
@@ -19,6 +19,8 @@ public class HelloCrunchify extends HttpServlet {
         // reading the user input
         String id = request.getParameter("id");
         String nombre = request.getParameter("nombre");
+        
+        //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
         DepartamentoDAO dao = new DepartamentoDAO();
         
         Departamento departamento = new Departamento();
@@ -26,24 +28,15 @@ public class HelloCrunchify extends HttpServlet {
         departamento.setNom_departamento(nombre);
         dao.insert(departamento);
         
+        //Listando la informacion  
         List<Departamento> departamentos =  dao.findAll();
-        PrintWriter out = response.getWriter();
-        out.println (
-                  "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" +" +
-                      "http://www.w3.org/TR/html4/loose.dtd\">\n" +
-                  "<html> \n" +
-                    "<head> \n" +
-                      "<meta http-equiv=\"Content-Type\" content=\"text/html; " +
-                        "charset=ISO-8859-1\"> \n" +
-                      "<title> Crunchify.com JSP Servlet Example  </title> \n" +
-                    "</head> \n" +
-                    "<body> <div align='center'> \n" +
-                      "<style= \"font-size=\"12px\" color='black'\"" + "\">" +
-                        "Username: " + id + " <br> " + 
-                        "Password: " + nombre +
-                        "Numero Deptos" + departamentos.size() +
-                    "</font></body> \n" +
-                  "</html>" 
-                );      
+        request.setAttribute("departamentos", departamentos);
+       
+       
+        //Redireccionando la informacion
+        RequestDispatcher redireccion = request.getRequestDispatcher("index.jsp");
+        redireccion.forward(request, response);
+        
+        
         }
 }
