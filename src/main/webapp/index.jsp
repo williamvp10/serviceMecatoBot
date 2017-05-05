@@ -37,5 +37,6 @@ body {
       
     
     %>
+    <img alt="grafico" src=Porcentaje.jpeg"/>
 </body>
 </html>
