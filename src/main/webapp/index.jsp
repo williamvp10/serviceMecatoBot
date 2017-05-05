@@ -37,6 +37,6 @@ body {
       
     
     %>
-  
+    <img src="ChartServlet" />
 </body>
 </html>
