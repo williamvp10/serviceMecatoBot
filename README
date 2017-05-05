@@ -1,5 +1,6 @@
-This is a JEE6 full sample with JSF2.0, EJB3.1 and JPA2.0 based on the post at http://weblogs.java.net/blog/2009/07/24/jsf-20-jpa-glassfish-and-mysql.
+Ejemplo que permite desplegar una aplicacion java sobre Heroku.
+Incluye: 
+Conexion con base de datos Posgresql.
+Configuracion para generacion gráficos.
 
-It was taken from this blog post: http://www.tikalk.com/java/your-first-jee6-project-with-ejb-light-jpa-20-and-jsf-20-jbossas-6
-
-It's been altered to use embedded glassfish and postgres. It's also been set up to run on Heroku.
+Aplicacion "HolaMUndo" para el curso de Bases de Datos universidad Sergio Arboleda.

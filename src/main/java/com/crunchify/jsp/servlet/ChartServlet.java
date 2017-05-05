@@ -34,8 +34,10 @@ public class ChartServlet extends HttpServlet {
 	}
 
 	public JFreeChart getChart() {
-		DefaultPieDataset dataset = new DefaultPieDataset();
-		dataset.setValue("Ford", 23.3);
+		
+                DefaultPieDataset dataset = new DefaultPieDataset();
+	        //Crear la capa de servicios que se enlace con el DAO
+                dataset.setValue("Ford", 23.3);
 		dataset.setValue("Chevy", 32.4);
 		dataset.setValue("Yugo", 44.2);
 
