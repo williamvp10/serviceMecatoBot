@@ -28,6 +28,34 @@ import java.util.logging.Logger;
 
 public class DepartamentoDAO implements IBaseDatos<Departamento> {
 
+       public List recursosProyecto(){
+           String nombreProyecto = "";
+           int total = 0;
+            try {
+                String query = "select nom_proy, count(*) as total from Proyecto left join Recurso "
+                        + "     using (id_proyecto) group by nom_proy";
+                Connection connection = null;
+                try {
+                    connection = Conexion.getConnection();
+                } catch (URISyntaxException ex) {
+                    ex.printStackTrace();
+                }
+                
+                Statement st = connection.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next()){
+                   nombreProyecto = rs.getString("nom_proy"); 
+                   total = rs.getInt("total");
+                   
+                }
+                
+               
+            } catch (SQLException ex) {
+                Logger.getLogger(DepartamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+             return null;
+       }
+    
 	/**
 	 * Funcion que permite obtener una lista de los departamentos existentes en la base de datos
 	 * @return List<Departamento> Retorna la lista de Departamentos existentes en la base de datos
