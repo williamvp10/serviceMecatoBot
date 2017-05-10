@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
@@ -24,12 +23,10 @@ import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DatasetUtilities;
-import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
 import org.jfree.ui.TextAnchor;
 
 public class BarServlet extends HttpServlet {
@@ -49,18 +46,17 @@ public class BarServlet extends HttpServlet {
 	public JFreeChart getChart() {
 		
         
-         double[][] data = new double[][] {{4.0, 3.0, -2.0, 3.0, 6.0}};
-         CategoryDataset category = DatasetUtilities.createCategoryDataset(
-            "Series ",
-            "Category ",
-            data
-        );
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+    dataset.addValue(15, "1", "451");
+    dataset.addValue(12, "1", "851");
+    dataset.addValue(10, "2", "362");
+    dataset.addValue(5,  "2",  "142"); 
         
  JFreeChart chart = ChartFactory.createBarChart(
             "Bar Chart Demo 3",       // chart title
             "Category",               // domain axis label
             "Value",                  // range axis label
-            category,                  // data
+            dataset,                  // data
             PlotOrientation.VERTICAL, // the plot orientation
             false,                    // include legend
             true,
