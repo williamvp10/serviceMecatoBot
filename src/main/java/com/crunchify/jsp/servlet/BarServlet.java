@@ -24,9 +24,7 @@ import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
-import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DatasetUtilities;
 import org.jfree.ui.TextAnchor;
 
 public class BarServlet extends HttpServlet {
@@ -47,10 +45,10 @@ public class BarServlet extends HttpServlet {
 		
         
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-    dataset.addValue(15, "1", "451");
-    dataset.addValue(12, "1", "851");
-    dataset.addValue(10, "2", "362");
-    dataset.addValue(5,  "2",  "142"); 
+        dataset.addValue(15, "1", "451");
+        dataset.addValue(12, "1", "851");
+        dataset.addValue(10, "2", "362");
+        dataset.addValue(5,  "2",  "142"); 
         
  JFreeChart chart = ChartFactory.createBarChart(
             "Bar Chart Demo 3",       // chart title
