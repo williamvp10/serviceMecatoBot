@@ -31,7 +31,7 @@ public class Mail extends HttpServlet {
             props.setProperty("mail.smtp.host", "smtp.gmail.com");
             props.setProperty("mail.smtp.starttls.enable", "true");
             props.setProperty("mail.smtp.port", "587");
-            props.setProperty("mail.smtp.user", "fabian.giraldo@gmail.com");
+            props.setProperty("mail.smtp.user", "");
             props.setProperty("mail.smtp.auth", "true");
 
             // Preparamos la sesion
@@ -39,14 +39,14 @@ public class Mail extends HttpServlet {
 
             // Construimos el mensaje
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("fabian.giraldo@gmail.com"));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress("fabian.giraldo@correo.usa.edu.co"));
+            message.setFrom(new InternetAddress(""));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(""));
             message.setSubject("Asunto");
             message.setText("Mensaje");
 
             // Lo enviamos.
             Transport t = session.getTransport("smtp");
-            t.connect("fabian.giraldo@gmail.com", "!fabian4295!");
+            t.connect("fabian.giraldo@gmail.com", "");
             t.sendMessage(message, message.getAllRecipients());
 
             // Cierre.
