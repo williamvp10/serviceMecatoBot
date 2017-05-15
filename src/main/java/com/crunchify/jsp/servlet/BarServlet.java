@@ -45,12 +45,12 @@ public class BarServlet extends HttpServlet {
 		
         String strSeries = "series1" ; 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-       dataset.addValue(3/4.0 * 100, strSeries, "A"); 
+        dataset.addValue(3/4.0 * 100, strSeries, "A"); 
         dataset.addValue(1/2.0 * 100, strSeries, "B"); 
         dataset.addValue(3/5.0 * 100, strSeries, "C"); 
         
  JFreeChart chart = ChartFactory.createBarChart(
-            "Bar Chart&aacute; Demo 3",       // chart title
+            "Bar Chartá Demo 3",       // chart title
             "",               // domain axis label
             "",                  // range axis label
             dataset,                  // data
