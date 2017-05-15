@@ -33,6 +33,10 @@
         <servlet-class>com.crunchify.jsp.servlet.HSSFCreate</servlet-class>
     </servlet>
     
+    <servlet>
+        <servlet-name>Mail</servlet-name>
+        <servlet-class>com.crunchify.jsp.servlet.Mail</servlet-class>
+    </servlet>
     
     
     <servlet-mapping>
@@ -56,5 +60,9 @@
         <url-pattern>/HSSFCreate</url-pattern>
     </servlet-mapping>
     
+    <servlet-mapping>
+        <servlet-name>Mail</servlet-name>
+        <url-pattern>/Mail</url-pattern>
+    </servlet-mapping>
     
 </web-app>
