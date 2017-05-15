@@ -43,17 +43,16 @@ public class BarServlet extends HttpServlet {
 
 	public JFreeChart getChart() {
 		
-        
+        String strSeries = "series1" ; 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(15, "1", "451");
-        dataset.addValue(12, "1", "851");
-        dataset.addValue(10, "2", "362");
-        dataset.addValue(5,  "2",  "142"); 
+       dataset.addValue(3/4.0 * 100, strSeries, "A"); 
+        dataset.addValue(1/2.0 * 100, strSeries, "B"); 
+        dataset.addValue(3/5.0 * 100, strSeries, "C"); 
         
  JFreeChart chart = ChartFactory.createBarChart(
-            "Bar Chart Demo 3",       // chart title
-            "Category",               // domain axis label
-            "Value",                  // range axis label
+            "Bar Chart&aacute; Demo 3",       // chart title
+            "",               // domain axis label
+            "",                  // range axis label
             dataset,                  // data
             PlotOrientation.VERTICAL, // the plot orientation
             false,                    // include legend
