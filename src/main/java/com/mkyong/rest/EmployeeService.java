@@ -1,4 +1,4 @@
-package org.o7planning.restfulcrud.service;
+package com.mkyong.rest;
  
 import java.util.List;
  

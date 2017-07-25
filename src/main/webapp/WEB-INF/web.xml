@@ -73,9 +73,8 @@
         </servlet-class>
 	<init-param>
 	    <param-name>com.sun.jersey.config.property.packages</param-name>
-	     <param-value>com.mkyong.rest</param-value>
-             <param-value>org.o7planning.restfulcrud.service</param-value>
-    	</init-param>
+	    <param-value>com.mkyong.rest</param-value>
+      	</init-param>
 	<load-on-startup>1</load-on-startup>
     </servlet>
 
