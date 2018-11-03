@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
- 
+import DAO.tiendaDAO;
 
 import org.o7planning.restfulcrud.model.Tienda;
  
@@ -21,19 +21,19 @@ public class TiendaDAO {
  
     private static final Map<String, Tienda> TieMap = new HashMap<String, Tienda>();
  
-    static {
-        initTiendas();
-    }
+    //static {
+    //    initTiendas();
+    //}
  
-    private static void initTiendas() {
-        Tienda t1 = new Tienda("1", "Domino's pizza");
-        Tienda t2 = new Tienda("2", "Papa johns");
-        Tienda t3 = new Tienda("3", "Jenos pizza");
+    //private static void initTiendas() {
+    //    Tienda t1 = new Tienda("1", "Domino's pizza");
+    //    Tienda t2 = new Tienda("2", "Papa johns");
+    //    Tienda t3 = new Tienda("3", "Jenos pizza");
  
-        TieMap.put(t1.getId(), t1);
-        TieMap.put(t2.getId(), t2);
-        TieMap.put(t3.getId(), t3);
-    }
+    //    TieMap.put(t1.getId(), t1);
+    //    TieMap.put(t2.getId(), t2);
+    //    TieMap.put(t3.getId(), t3);
+    //}
  
     public static Tienda getTienda(String id) {
         return TieMap.get(id);

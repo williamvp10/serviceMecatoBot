@@ -20,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.Conexion;
 import VO.Producto;
+import VO.Tienda;
 
 public class productoDAO {
 
@@ -99,11 +100,18 @@ public class productoDAO {
                     = statement.executeQuery(consulta);
             //----------------------------
             //Recorrido sobre el resultado
+            
             while (resultado.next()) {
                 Producto prod = new Producto();
+                Tienda tienda = new Tienda();
 
-                prod.setNombre(resultado.getString(1));
-                prod.setPrecio(resultado.getInt(2));
+                prod.setId(resultado.getString(1));
+                prod.setNombre(resultado.getString(2));
+                prod.setTipo(resultado.getString(3));
+                prod.setIngredientes(resultado.getString(4));
+                tienda.setId(resultado.getString(5));
+                prod.setIdTienda(tienda);
+                prod.setPrecio(resultado.getInt(6));
                 respuesta.add(prod);
             }
 
