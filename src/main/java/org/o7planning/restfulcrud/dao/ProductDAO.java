@@ -20,7 +20,7 @@ import org.o7planning.restfulcrud.model.Product;
 
 public class ProductDAO {
  
-    private static final Map<String, Product> empMap = new HashMap<String, Product>();
+//    private static final Map<String, Product> empMap = new HashMap<String, Product>();
     private productoDAO pDAO=new productoDAO();
    // static {
      //   initEmps();
@@ -36,7 +36,7 @@ public class ProductDAO {
       //  empMap.put(p3.getId(), p3);
     //}
  
-    public ArrayList<Producto> getProduct() {
+    public ArrayList<Producto> leerProductos() {
          return pDAO.leerProducto();
       //  return empMap.get(empNo);
     }

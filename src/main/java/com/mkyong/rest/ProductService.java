@@ -6,6 +6,8 @@
 package com.mkyong.rest;
 
  
+import VO.Producto;
+import java.util.ArrayList;
 import java.util.List;
  
 import javax.ws.rs.DELETE;
@@ -24,46 +26,62 @@ import org.o7planning.restfulcrud.model.Product;
  
 @Path("/products")
 public class ProductService {
+    ProductDAO pDAO =new ProductDAO();
  
     // URI:
     // /contextPath/servletPath/employees
     @GET
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public List<Product> getProducts_JSON() {
-        List<Product> listOfCountries = ProductDAO.getAllProducts();
+    public ArrayList<Producto> leerProductos_JSON() {
+        ArrayList<Producto> listOfCountries = pDAO.leerProductos();
         return listOfCountries;
     }
+    
+    @GET
+    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    public ArrayList<Producto>  obtenerTipos_JSON() {
+        ArrayList<Producto> listOftypes = pDAO.leerProductos();
+        return listOftypes;
+    }
+ 
+    @GET
+    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    public ArrayList<Producto> obtenerIngredientes_JSON() {
+        ArrayList<Producto> listOfIngredientes = pDAO.leerProductos();
+        return listOfIngredientes;
+    }
+ 
  
     // URI:
     // /contextPath/servletPath/employees/{empNo}
-    @GET
-    @Path("/{id}")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Product getProduct(@PathParam("id") String id) {
-        return ProductDAO.getProduct(id);
-    }
+    //@GET
+    //@Path("/{id}")
+    //@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    //public Product getProduct(@PathParam("id") String id) {
+    //    return ProductDAO.getProduct(id);
+    //}
  
     // URI:
     // /contextPath/servletPath/employees
-    @POST
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Product addProduct(Product pr) {
-        return ProductDAO.addProduct(pr);
-    }
+    //@POST
+    //@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    //public Product addProduct(Product pr) {
+    //    return ProductDAO.addProduct(pr);
+    //}
  
     // URI:
     // /contextPath/servletPath/employees
-    @PUT
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Product updateProduct(Product pr) {
-        return ProductDAO.updateProduct(pr);
-    }
+    //@PUT
+    //@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    //public Product updateProduct(Product pr) {
+    //    return ProductDAO.updateProduct(pr);
+    //}
  
-    @DELETE
-    @Path("/{id}")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public void deleteProduct(@PathParam("id") String pr) {
-        ProductDAO.deleteProduct(pr);
-    }
+    //@DELETE
+    //@Path("/{id}")
+    //@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    //public void deleteProduct(@PathParam("id") String pr) {
+    //    ProductDAO.deleteProduct(pr);
+    //}
  
 }
