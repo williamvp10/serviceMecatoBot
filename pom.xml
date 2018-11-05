@@ -57,7 +57,7 @@
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
                         <program>
-                            <mainClass>MainEjemplo</mainClass>
+                            <mainClass>MainGlassfish</mainClass>
                             <name>webapp</name>
                         </program>
                     </programs>
