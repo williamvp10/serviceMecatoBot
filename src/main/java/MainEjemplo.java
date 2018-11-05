@@ -7,51 +7,31 @@ import org.glassfish.embeddable.GlassFish;
 import org.glassfish.embeddable.GlassFishProperties;
 import org.glassfish.embeddable.GlassFishRuntime;
 import org.glassfish.embeddable.archive.ScatteredArchive;
+import spark.Spark;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Labing
  */
 public class MainEjemplo {
+
     public static void main(String[] args) throws Exception {
-	   String webappDirLocation = "src/main/webapp/";
+        Spark.setPort(getHerokuAssignedPort());
+        Spark.staticFileLocation("/public");
+        Spark.setPort(getHerokuAssignedPort());
 
-	// Look for that variable and default to 8080 if it isn't there.
-	String webPort = System.getenv("PORT");
-	if (webPort == null || webPort.isEmpty()) {
-	    webPort = "8090";
-	}
+    }
 
-	/** Create and start GlassFish which listens at 8080 http port */
-	GlassFishProperties gfProps = new GlassFishProperties();
-        gfProps.setPort("http-listener", Integer.valueOf(webPort)); // refer
-        gfProps.setProperty("domain-dir", "glassfishDomain");
-
-	GlassFish glassfish = GlassFishRuntime.bootstrap()
-			.newGlassFish(gfProps);
-	glassfish.start();
-	CommandRunner runner = glassfish.getCommandRunner();
-	
-        CommandResult result  = runner.run("set-log-level", "javax.enterprise.system.container.web=INFO:javax.enterprise.system.container.ejb=FINEST");
-        System.out.println("------output of set log level: " + result.getOutput());
-	Deployer deployer = glassfish.getDeployer();
-
-      
-        
-        //Invocando el Script de Creacion de la base de datos.
-      
-	// Create a scattered web application.
-	ScatteredArchive archive = new ScatteredArchive("myApp",
-	ScatteredArchive.Type.WAR, new File(webappDirLocation));
-        // target/classes directory contains my complied servlets
-	archive.addClassPath(new File("target", "classes"));
-	deployer.deploy(archive.toURI());
-
-	}
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
 }
