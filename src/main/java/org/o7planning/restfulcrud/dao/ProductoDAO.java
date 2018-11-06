@@ -185,7 +185,7 @@ public class ProductoDAO {
 
         for (int i = 0; i < tipos.size(); i++) {
             Product prod = new Product();
-            String tipo = productos.get(i).getTipo();
+            String tipo = tipos.get(i);
             prod.setTipo(tipo);
             prodTipos.add(prod);
         }
