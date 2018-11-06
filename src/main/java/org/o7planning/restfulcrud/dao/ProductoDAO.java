@@ -209,6 +209,10 @@ public class ProductoDAO {
         List<Product> productos = new ArrayList<Product>();
 
         productos = leerProductoporTipo(tipo);
+        
+        for (int i = 0; i < productos.size(); i++) {
+            System.out.println(productos.get(i).getNombre());
+        }
 
         for (int i = 0; i < productos.size(); i++) {
 
@@ -223,7 +227,7 @@ public class ProductoDAO {
                 }
             }
 
-            if (c == ingredientes.size() - 3) {
+            if (c >= ingredientes.size() - 3) {
                 sugerencia.add(productos.get(i));
             }
         }
