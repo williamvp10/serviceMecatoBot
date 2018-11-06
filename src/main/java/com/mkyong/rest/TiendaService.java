@@ -6,7 +6,7 @@
 package com.mkyong.rest;
 
  
-import java.util.ArrayList;
+
 import java.util.List;
  
 import javax.ws.rs.DELETE;
@@ -45,9 +45,9 @@ public class TiendaService {
     public List<Tienda> getTiendas(@PathParam("tipo") String tipo, @PathParam("ing") String ing) {
         ProductoDAO prod = new ProductoDAO();
         TiendaDAO tienda = new TiendaDAO();
-        List<String> ingredientes = new ArrayList();
-        List<Product> productosSugeridos = new ArrayList();
-        List<Tienda> TiendasSugeridas = new ArrayList();
+        List<String> ingredientes;
+        List<Product> productosSugeridos;
+        List<Tienda> TiendasSugeridas;
         String [] split = ing.split(",");
         ingredientes = prod.splitArray(split);
         productosSugeridos=prod.sugerenciasProductos(tipo, ingredientes);
