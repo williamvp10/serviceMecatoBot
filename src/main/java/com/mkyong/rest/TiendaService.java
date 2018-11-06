@@ -41,7 +41,7 @@ public class TiendaService {
     // /contextPath/servletPath/employees/{empNo}
     @GET
     @Path("/{tipo}/{ing}")
-    @Produces({  MediaType.APPLICATION_XML })
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public List<Tienda> getTiendas(@PathParam("tipo") String tipo, @PathParam("ing") String ing) {
         ProductoDAO prod = new ProductoDAO();
         TiendaDAO tienda = new TiendaDAO();

@@ -23,11 +23,11 @@ public class ProductService {
     // URI:
     // /contextPath/servletPath/employees
     @GET
-    @Produces({MediaType.APPLICATION_XML })
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML })
     public List<String> getTipos_JSON() {
         ProductoDAO prod = new ProductoDAO();
-        List<Product> listofProd = new ArrayList<Product>();
-        List<String> tipos = new ArrayList<String>();
+        List<Product> listofProd ;
+        List<String> tipos;
         listofProd = prod.leerProducto();
         tipos = prod.obtenerTipos(listofProd);
         return tipos;
@@ -37,11 +37,11 @@ public class ProductService {
     // /contextPath/servletPath/employees/{empNo}
     @GET
     @Path("/{tipo}")
-    @Produces({MediaType.APPLICATION_XML })
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML })
     public List<String> getIngredientes(@PathParam("tipo") String tipo) {
         ProductoDAO prod = new ProductoDAO();
-        List<Product> listofProd = new ArrayList<Product>();
-        List<String> ingredientes = new ArrayList<String>();
+        List<Product> listofProd ;
+        List<String> ingredientes ;
         listofProd = prod.leerProductoporTipo(tipo);
         ingredientes = prod.obtenerIngredientes(listofProd);
         return ingredientes;
