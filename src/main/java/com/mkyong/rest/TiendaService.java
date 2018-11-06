@@ -42,12 +42,12 @@ public class TiendaService {
     @GET
     @Path("/{tipo}/{ing}")
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public ArrayList<Tienda> getTiendas(@PathParam("tipo") String tipo, @PathParam("ing") String ing) {
+    public List<Tienda> getTiendas(@PathParam("tipo") String tipo, @PathParam("ing") String ing) {
         ProductoDAO prod = new ProductoDAO();
         TiendaDAO tienda = new TiendaDAO();
-        ArrayList<String> ingredientes = new ArrayList();
-        ArrayList<Product> productosSugeridos = new ArrayList();
-        ArrayList<Tienda> TiendasSugeridas = new ArrayList();
+        List<String> ingredientes = new ArrayList();
+        List<Product> productosSugeridos = new ArrayList();
+        List<Tienda> TiendasSugeridas = new ArrayList();
         String [] split = ing.split(",");
         ingredientes = prod.splitArray(split);
         productosSugeridos=prod.sugerenciasProductos(tipo, ingredientes);

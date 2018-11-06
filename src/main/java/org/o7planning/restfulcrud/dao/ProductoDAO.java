@@ -94,9 +94,9 @@ public class ProductoDAO {
         return result;
     }
 
-    public ArrayList<Product> leerProducto() {
+    public List<Product> leerProducto() {
         //1.Consulta
-        ArrayList<Product> respuesta = new ArrayList();
+        List<Product> respuesta = new ArrayList<Product>();
         String consulta = "SELECT * FROM Producto";
         try {
             //----------------------------
@@ -131,9 +131,9 @@ public class ProductoDAO {
     }
     
     
-    public ArrayList<Product> leerProductoporTipo(String tipo) {
+    public List<Product> leerProductoporTipo(String tipo) {
         //1.Consulta
-        ArrayList<Product> respuesta = new ArrayList();
+        List<Product> respuesta = new ArrayList<Product>();
         String consulta = "SELECT * FROM Producto where tipo = '"+tipo+"'";
         try {
             //----------------------------
@@ -167,8 +167,8 @@ public class ProductoDAO {
         return respuesta;
     }
 
-    public ArrayList<String> obtenerTipos(ArrayList<Product> productos) {
-        ArrayList<String> tipos = new ArrayList();
+    public List<String> obtenerTipos(List<Product> productos) {
+        List<String> tipos = new ArrayList<String>();
 
         int k = 0;
         for (int i = 0; i < productos.size(); i++) {
@@ -189,8 +189,8 @@ public class ProductoDAO {
 
     
     
-    public ArrayList<String> splitArray(String[] ing){
-        ArrayList<String> ingredientes = new ArrayList();
+    public List<String> splitArray(String[] ing){
+        List<String> ingredientes = new ArrayList<String>();
                 
         
         for (int i = 0; i < ing.length; i++) {
@@ -200,9 +200,9 @@ public class ProductoDAO {
         return ingredientes;
     }
     
-    public ArrayList<Product> sugerenciasProductos(String tipo, ArrayList<String> ingredientes){
-        ArrayList<Product> sugerencia = new ArrayList();
-        ArrayList<Product> productos = new ArrayList();
+    public List<Product> sugerenciasProductos(String tipo, List<String> ingredientes){
+        List<Product> sugerencia = new ArrayList<Product>();
+        List<Product> productos = new ArrayList<Product>();
         
         productos = leerProductoporTipo(tipo);
        
@@ -228,8 +228,8 @@ public class ProductoDAO {
         return sugerencia;
     }
     
-    public ArrayList<String> obtenerIngredientes(ArrayList<Product> productos) {
-        ArrayList<String> ingredientes = new ArrayList();
+    public List<String> obtenerIngredientes(List<Product> productos) {
+        List<String> ingredientes = new ArrayList<String>();
 
         for (int i = 0; i < productos.size(); i++) {
             if (i == 0) {
@@ -242,7 +242,7 @@ public class ProductoDAO {
             } else {
                 String cadena = productos.get(i).getIngredientes();
                 String[] parts = cadena.split(",");
-                ArrayList<String> aux = new ArrayList();
+                List<String> aux = new ArrayList();
                 aux = ingredientes;
                 for (int j = 0; j < parts.length; j++) {
                     for (int k = 0; k < aux.size(); k++) {

@@ -69,9 +69,9 @@ public class TiendaDAO {
         return resultado;
     }
 
-    public ArrayList<Tienda> leerTienda() {
+    public List<Tienda> leerTienda() {
         //1.Consulta
-        ArrayList<Tienda> respuesta = new ArrayList();
+        List<Tienda> respuesta = new ArrayList<Tienda>();
 
         String consulta = "SELECT * FROM tienda";
         try {
@@ -106,7 +106,7 @@ public class TiendaDAO {
 
     public Tienda leerTiendaPorID(String id) {
         //1.Consulta
-        ArrayList<Tienda> respuesta = new ArrayList();
+        List<Tienda> respuesta = new ArrayList<Tienda>();
         Tienda tienda = new Tienda();
 
         String consulta = "SELECT * FROM tienda where id='" + id + "'";
@@ -139,9 +139,9 @@ public class TiendaDAO {
     }
     
     
-    public ArrayList<String> idTiendasSugeridas(ArrayList<Product> productos){
+    public List<String> idTiendasSugeridas(List<Product> productos){
         
-        ArrayList<String> ids = new ArrayList();
+        List<String> ids = new ArrayList<String>();
 
         for (int i = 0; i < productos.size(); i++) {
             if (i == 0) {
@@ -166,9 +166,9 @@ public class TiendaDAO {
         return ids;
     }
 
-    public ArrayList<Tienda> sugerenciaTienda(ArrayList<Product> productos) {
-        ArrayList<Tienda> sugerencia = new ArrayList();
-        ArrayList<String> ids = new ArrayList();
+    public List<Tienda> sugerenciaTienda(List<Product> productos) {
+        List<Tienda> sugerencia = new ArrayList<Tienda>();
+        List<String> ids = new ArrayList<String>();
         
         ids=idTiendasSugeridas(productos);
         
