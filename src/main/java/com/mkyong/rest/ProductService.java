@@ -48,10 +48,10 @@ public class ProductService {
     @GET
     @Path("/{tipo}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML })
-    public List<String> getIngredientes(@PathParam("tipo") String tipo) {
+    public List<Product> getIngredientes(@PathParam("tipo") String tipo) {
         ProductoDAO prod = new ProductoDAO();
         List<Product> listofProd ;
-        List<String> ingredientes ;
+        List<Product> ingredientes ;
         listofProd = prod.leerProductoporTipo(tipo);
         ingredientes = prod.obtenerIngredientes(listofProd);
         return ingredientes;

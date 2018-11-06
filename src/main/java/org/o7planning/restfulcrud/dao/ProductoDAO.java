@@ -230,8 +230,9 @@ public class ProductoDAO {
         return sugerencia;
     }
 
-    public List<String> obtenerIngredientes(List<Product> productos) {
+    public List<Product> obtenerIngredientes(List<Product> productos) {
         List<String> ingredientes = new ArrayList<String>();
+        List<Product> prodIng = new ArrayList<Product>();
 
         for (int i = 0; i < productos.size(); i++) {
             if (i == 0) {
@@ -259,8 +260,18 @@ public class ProductoDAO {
                 }
             }
         }
+        
+        
+        for (int i = 0; i < ingredientes.size(); i++) {
+            Product prod = new Product();
+            String ing = ingredientes.get(i);
+            
+            prod.setIngredientes(ing);
+            
+            prodIng.add(prod);
+        }
 
-        return ingredientes;
+        return prodIng;
     }
 
     public boolean borrarProducto(Product producto) {
