@@ -113,9 +113,9 @@ public class ProductoDAO {
                 prod.setId(resultado.getString(1));
                 prod.setNombre(resultado.getString(2));
                 prod.setTipo(resultado.getString(3));
-                prod.setIngredientes(resultado.getString(4));
-                tienda.setId(resultado.getString(5));
+                tienda.setId(resultado.getString(4));
                 prod.setIdTienda(tienda);
+                prod.setIngredientes(resultado.getString(5));
                 prod.setPrecio(resultado.getInt(6));
                 respuesta.add(prod);
             }
