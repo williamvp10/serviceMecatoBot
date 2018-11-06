@@ -32,7 +32,7 @@ public class ProductService {
 //    }
     
     @GET
-    @Produces("application/json")
+    @Produces({"application/json"})
     public List<String> getTipos_JSON() {
         ProductoDAO prod = new ProductoDAO();
         List<Product> listofProd = prod.leerProducto();
