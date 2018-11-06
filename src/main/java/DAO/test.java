@@ -70,7 +70,7 @@ public class test {
         ingham.add(p5);
         ingham.add(p6);
         
-        productoDAO dao = new productoDAO();
+        Productdao dao = new Productdao();
         
         tipos = dao.obtenerTipos(prods);
         ingredientes1 = dao.obtenerIngredientes(ingpizza);

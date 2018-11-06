@@ -5,8 +5,7 @@
  */
 package org.o7planning.restfulcrud.dao;
 
-
- /**
+/**
  *
  * @author Carlos Alberto
  */
@@ -25,10 +24,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 import org.o7planning.restfulcrud.model.Product;
 import org.o7planning.restfulcrud.model.Tienda;
- 
 
 public class ProductoDAO {
 
@@ -108,7 +105,7 @@ public class ProductoDAO {
                     = statement.executeQuery(consulta);
             //----------------------------
             //Recorrido sobre el resultado
-            
+
             while (resultado.next()) {
                 Product prod = new Product();
                 Tienda tienda = new Tienda();
@@ -129,12 +126,11 @@ public class ProductoDAO {
 
         return respuesta;
     }
-    
-    
+
     public List<Product> leerProductoporTipo(String tipo) {
         //1.Consulta
         List<Product> respuesta = new ArrayList<Product>();
-        String consulta = "SELECT * FROM Producto where tipo = '"+tipo+"'";
+        String consulta = "SELECT * FROM Producto where tipo = '" + tipo + "'";
         try {
             //----------------------------
             //Statement
@@ -145,7 +141,7 @@ public class ProductoDAO {
                     = statement.executeQuery(consulta);
             //----------------------------
             //Recorrido sobre el resultado
-            
+
             while (resultado.next()) {
                 Product prod = new Product();
                 Tienda tienda = new Tienda();
@@ -167,16 +163,19 @@ public class ProductoDAO {
         return respuesta;
     }
 
-    public List<String> obtenerTipos(List<Product> productos) {
+    public List<Product> obtenerTipos(List<Product> productos) {
         List<String> tipos = new ArrayList<String>();
+        List<Product> prodTipos = new ArrayList<Product>();
 
         int k = 0;
         for (int i = 0; i < productos.size(); i++) {
             if (i == 0) {
+
                 tipos.add(productos.get(i).getTipo());
 
             } else {
                 if (!tipos.get(k).equals(productos.get(i).getTipo())) {
+
                     tipos.add(productos.get(i).getTipo());
                     k = k + 1;
                 }
@@ -184,50 +183,53 @@ public class ProductoDAO {
             }
         }
 
-        return tipos;
+        for (int i = 0; i < tipos.size(); i++) {
+            Product prod = new Product();
+            String tipo = productos.get(i).getTipo();
+            prod.setTipo(tipo);
+            prodTipos.add(prod);
+        }
+
+        return prodTipos;
     }
 
-    
-    
-    public List<String> splitArray(String[] ing){
+    public List<String> splitArray(String[] ing) {
         List<String> ingredientes = new ArrayList<String>();
-                
-        
+
         for (int i = 0; i < ing.length; i++) {
             ingredientes.add(ing[i]);
         }
-        
+
         return ingredientes;
     }
-    
-    public List<Product> sugerenciasProductos(String tipo, List<String> ingredientes){
+
+    public List<Product> sugerenciasProductos(String tipo, List<String> ingredientes) {
         List<Product> sugerencia = new ArrayList<Product>();
         List<Product> productos = new ArrayList<Product>();
-        
+
         productos = leerProductoporTipo(tipo);
-       
+
         for (int i = 0; i < productos.size(); i++) {
-            
+
             String cadena = productos.get(i).getIngredientes();
             String[] parts = cadena.split(",");
-            int c=0;
+            int c = 0;
             for (int j = 0; j < ingredientes.size(); j++) {
                 for (int k = 0; k < parts.length; k++) {
                     if (parts[k].equals(ingredientes.get(j))) {
-                        c=c+1;
+                        c = c + 1;
                     }
                 }
             }
-            
-            if (c==ingredientes.size()-3) {
+
+            if (c == ingredientes.size() - 3) {
                 sugerencia.add(productos.get(i));
             }
         }
-        
-        
+
         return sugerencia;
     }
-    
+
     public List<String> obtenerIngredientes(List<Product> productos) {
         List<String> ingredientes = new ArrayList<String>();
 
@@ -248,7 +250,7 @@ public class ProductoDAO {
                     for (int k = 0; k < aux.size(); k++) {
                         //System.out.println("Entro ambos for");
                         if (parts[j].equals(ingredientes.get(k))) {
-                            k=aux.size();
+                            k = aux.size();
                         } else if (k == aux.size() - 1) {
                             ingredientes.add(parts[j]);
                         }

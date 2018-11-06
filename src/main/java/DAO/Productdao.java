@@ -22,15 +22,15 @@ import util.Conexion;
 import VO.Producto;
 import VO.Tienda;
 
-public class productoDAO {
+public class Productdao {
 
     private Connection conexion;
 
-    public productoDAO() {
+    public Productdao() {
         try {
             this.conexion = Conexion.getConnection();
         } catch (URISyntaxException ex) {
-            Logger.getLogger(productoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Productdao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

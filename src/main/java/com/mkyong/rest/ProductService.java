@@ -33,10 +33,10 @@ public class ProductService {
     
     @GET
     @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML })
-    public List<String> getTipos_JSON() {
+    public List<Product> getTipos_JSON() {
         ProductoDAO prod = new ProductoDAO();
         List<Product> listofProd = prod.leerProducto();
-        List<String> tipos = prod.obtenerTipos(listofProd);
+        List<Product> tipos = prod.obtenerTipos(listofProd);
         return tipos;
     }
  
