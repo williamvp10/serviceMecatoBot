@@ -1,6 +1,6 @@
 package com.mkyong.rest;
  
-import java.util.ArrayList;
+
 import java.util.List;
  
 import javax.ws.rs.DELETE;
@@ -10,9 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
  
 import org.o7planning.restfulcrud.dao.EmployeeDAO;
 import org.o7planning.restfulcrud.dao.ProductoDAO;
@@ -24,19 +22,22 @@ public class ProductService {
  
     // URI:
     // /contextPath/servletPath/employees
+//    @GET
+//    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML })
+//    public List<String> getTipos_JSON() {
+//        ProductoDAO prod = new ProductoDAO();
+//        List<Product> listofProd = prod.leerProducto();
+//        List<String> tipos = prod.obtenerTipos(listofProd);
+//        return tipos;
+//    }
+    
     @GET
-    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML })
-    public Response getTipos_JSON() {
+    @Produces("application/json")
+    public List<String> getTipos_JSON() {
         ProductoDAO prod = new ProductoDAO();
-        List<Product> listofProd ;
-        List<String> tipos;
-        listofProd = prod.leerProducto();
-        tipos = prod.obtenerTipos(listofProd);
-        
-        
-        GenericEntity<List<String>> list = new GenericEntity<List<String>>(tipos){};
-        
-        return Response.ok(list).build();
+        List<Product> listofProd = prod.leerProducto();
+        List<String> tipos = prod.obtenerTipos(listofProd);
+        return tipos;
     }
  
     // URI:
