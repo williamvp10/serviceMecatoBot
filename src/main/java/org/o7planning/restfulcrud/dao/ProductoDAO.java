@@ -198,6 +198,7 @@ public class ProductoDAO {
 
         for (int i = 0; i < ing.length; i++) {
             ingredientes.add(ing[i]);
+            System.out.println(ing[i]);
         }
 
         return ingredientes;
@@ -227,6 +228,10 @@ public class ProductoDAO {
             }
         }
 
+        for (int i = 0; i < sugerencia.size(); i++) {
+            System.out.println(sugerencia.get(i).getNombre());
+        }
+        
         return sugerencia;
     }
 

@@ -135,7 +135,7 @@ public class TiendaDAO {
             ex.printStackTrace();
         }
 
-        return tienda;
+        return respuesta.get(0);
     }
     
     
@@ -160,6 +160,10 @@ public class TiendaDAO {
                 }
 
             }
+        }
+        
+        for (int i = 0; i < ids.size(); i++) {
+            System.out.println(ids.get(i));
         }
         
         
