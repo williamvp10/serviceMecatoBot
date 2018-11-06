@@ -36,6 +36,9 @@ public class ProductService {
     public List<Product> getTipos_JSON() {
         ProductoDAO prod = new ProductoDAO();
         List<Product> listofProd = prod.leerProducto();
+        for (int i = 0; i < listofProd.size(); i++) {
+            System.out.println(listofProd.get(i).getTipo());
+        }
         List<Product> tipos = prod.obtenerTipos(listofProd);
         return tipos;
     }
