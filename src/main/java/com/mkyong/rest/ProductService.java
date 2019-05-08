@@ -40,7 +40,7 @@ public class ProductService {
             System.out.println(listofProd.get(i).getTipo());
         }
         List<Product> tipos = prod.obtenerTipos(listofProd);
-        return tipos;
+        return listofProd;
     }
  
     // URI:
@@ -54,7 +54,7 @@ public class ProductService {
         List<Product> ingredientes ;
         listofProd = prod.leerProductoporTipo(tipo);
         ingredientes = prod.obtenerIngredientes(listofProd);
-        return ingredientes;
+        return listofProd ;
         
     }
  
