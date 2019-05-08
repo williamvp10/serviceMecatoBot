@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import org.o7planning.restfulcrud.dao.EmployeeDAO;
 import org.o7planning.restfulcrud.dao.ProductoDAO;
 import org.o7planning.restfulcrud.model.Employee;
+import org.o7planning.restfulcrud.model.Ingredient;
 import org.o7planning.restfulcrud.model.Product;
  
 @Path("/products")
@@ -40,7 +41,7 @@ public class ProductService {
             System.out.println(listofProd.get(i).getTipo());
         }
         List<Product> tipos = prod.obtenerTipos(listofProd);
-        return listofProd;
+        return tipos;
     }
  
     // URI:
@@ -48,13 +49,13 @@ public class ProductService {
     @GET
     @Path("/{tipo}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML })
-    public List<Product> getIngredientes(@PathParam("tipo") String tipo) {
+    public List<Ingredient> getIngredientes(@PathParam("tipo") String tipo) {
         ProductoDAO prod = new ProductoDAO();
         List<Product> listofProd ;
-        List<Product> ingredientes ;
+        List<Ingredient> ingredientes ;
         listofProd = prod.leerProductoporTipo(tipo);
         ingredientes = prod.obtenerIngredientes(listofProd);
-        return listofProd ;
+        return ingredientes;
         
     }
  

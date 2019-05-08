@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.o7planning.restfulcrud.model.Ingredient;
 
 import org.o7planning.restfulcrud.model.Product;
 import org.o7planning.restfulcrud.model.Tienda;
@@ -187,6 +188,7 @@ public class ProductoDAO {
             Product prod = new Product();
             String tipo = tipos.get(i);
             prod.setTipo(tipo);
+            prod.setPrecio(5000);
             prodTipos.add(prod);
         }
 
@@ -239,9 +241,9 @@ public class ProductoDAO {
         return sugerencia;
     }
 
-    public List<Product> obtenerIngredientes(List<Product> productos) {
+    public List<Ingredient> obtenerIngredientes(List<Product> productos) {
         List<String> ingredientes = new ArrayList<String>();
-        List<Product> prodIng = new ArrayList<Product>();
+        List<Ingredient> prodIng = new ArrayList<Ingredient>();
 
         for (int i = 0; i < productos.size(); i++) {
             if (i == 0) {
@@ -272,11 +274,10 @@ public class ProductoDAO {
         
         
         for (int i = 0; i < ingredientes.size(); i++) {
-            Product prod = new Product();
+            Ingredient prod = new Ingredient();
             String ing = ingredientes.get(i);
-            
-            prod.setIngredientes(ing);
-            
+            prod.setNombre(ing);
+            prod.setPrecio(1000);
             prodIng.add(prod);
         }
 
