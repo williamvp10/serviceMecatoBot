@@ -43,6 +43,7 @@ public class TiendaService {
     @Path("/{tipo}/{ing}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public List<Tienda> getTiendas(@PathParam("tipo") String tipo, @PathParam("ing") String ing) {
+        System.out.println("ing "+ing);
         ProductoDAO prod = new ProductoDAO();
         TiendaDAO tienda = new TiendaDAO();
         List<String> ingredientes;
